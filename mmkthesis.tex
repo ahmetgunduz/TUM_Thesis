@@ -1,0 +1,174 @@
+%    Copyright (C) Adapted Version by Tiefenbacher (philipp.tiefenbacher@tum.de)
+% 	 Original version from Moritz Kaiser
+%    Institute for Human-Machine Communication
+%    Technische Universität München, Germany
+%    
+%
+%    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Document:       Template for master's thesis at our institute
+%    Version:        0.5
+%    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{mmkthesis} %set to mmkthesis_deutsch when writing in german
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include packages, these are only the basic packages %
+% Add own things if you want                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[german, english]{babel}               
+% We want to have some math
+\usepackage{amsmath}
+\usepackage{amssymb}
+% For the set of real numbers
+\usepackage{amsfonts}
+% Nice figures 
+\usepackage{graphicx}
+% with subfigures
+\usepackage[tight]{subfigure}
+% Wrap text around figures
+\usepackage{wrapfig}    
+% More beautiful tables
+\usepackage{booktabs}
+% For pseudo codes (don't forget the noend option)
+%\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Comment package
+\usepackage{comment}
+
+% Blind text
+\usepackage{blindtext}
+
+% subfigure package
+\include{subfigure}
+
+% wrap figure
+\usepackage{wrapfig}
+
+% table
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% Referencing
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage{url}
+
+\usepackage{afterpage}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+% MY COLOR PALETTE : ["#2C3531", "#116466", "#548E92", "#D9B08C", "#FFCB9A", "#D1E8E2"]
+% RGB equivalents => [(44,53,49), (17,100,102), (84,142,146), (217,176,140), (255,203,154), (209,232,226)]
+
+%create nice graphics with tikz. We recommend to convert your matlab plots with matlab2tikz to a tikz file.
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+%\usetikzlibrary{external, arrows, scopes, decorations.pathreplacing, shapes.geometric, matrix, positioning, decorations.markings}
+
+%convert eps to pdf --> faster compilation of document
+%\usepackage{epstopdf}
+
+%extended enumeration environemt, e.g., inline enumerations
+%\usepackage{enumitem}
+
+%want to read and revise your printed document. Use double space to have more space for corrections between lines.
+%\usepackage{setspace}
+%\doublespacing
+
+%more beautiful fraactions
+%\usepackage{nicefrac}
+
+%you want to add an url?
+%\usepackage{url}
+
+% Make overfull errors more visible in the output PDF by setting \overfullrule:
+\overfullrule=1pt
+
+% Own commands - very helpful
+% \input frontmatter/newcommands.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document information for the titlepage %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mmktitle}{Real-time Detection  \\\vspace{0.1cm}      % Title of the thesis
+            and \\\vspace{0.2cm}  % add vspace if your title
+            Classification of Dynamic Hand Gestures}                            % does not occupy three lines
+\newcommand{\mmkauthor}{Ahmet G\"und\"uz}                             % You, the author, no plagiarism
+\newcommand{\mmkadvisor}{ M.Sc.\ Okan K\"op\"ukl\"u}          % Your advisor
+				%in case of a B.Sc. or M.Sc title: NameOfYou/YourAdvisor, B.Sc.
+\newcommand{\mmktypeofwork}{Master's Thesis}                        % Bachelor/Master/IDP, etc.        
+\newcommand{\startedon}{01.04.2018}                                   % Started on
+\newcommand{\handedinon}{30.09.2018}                                  % Handed in on
+\setlength\parindent{0pt}
+\begin{document}
+%%%%%%%%%%%
+%if you write in german, uncomment the next line
+%\selectlanguage{german}   
+%%%%%%%%%%%
+
+\titlepage    % The TUM typical title page, defined in the mmkthesis class
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frontmatter, usually incorporates acknowledgements and abstract, see %
+%             http://en.wikipedia.org/wiki/Book_design                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+% \frontmatter, \mainmatter, \backmatter is for the book class
+\frontmatter
+\input{frontmatter/abstract.tex}
+\input{frontmatter/preface.tex}
+\tableofcontents
+\listoffigures
+\listoftables
+\addcontentsline{toc}{chapter}{\protect\numberline{}Preface}
+%%%%%%%%%%%%%%
+% Mainmatter %
+%%%%%%%%%%%%%%
+\mainmatter
+% Introduction
+\input{mainmatter/introduction.tex}
+% Related work
+\input{mainmatter/related_work.tex}
+% Own work
+\input{mainmatter/methodology.tex}
+% Results
+\input{mainmatter/results.tex}
+% Conlusion and outlook
+\input{mainmatter/conclusion.tex}
+
+%%%%%%%%%%%%%%
+% Backmatter %
+%%%%%%%%%%%%%%
+% \cleardoublepage
+% \begin{appendix}
+% \input{backmatter/appendix1.tex}
+% \end{appendix}
+% \backmatter % Here, because appendix has still the mainmatter formatting
+
+% Writes only, e.g., "bibliography" on top of those sections
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+  
+\cleardoublepage
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{alpha} % Bibliography
+% Add your works that are not cited in the text with the \nocite* command
+
+
+\bibliography{bibliography/egbib}
+
+\end{document}

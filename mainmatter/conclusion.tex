@@ -1,0 +1,16 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+\section{Conclusion}
+This thesis presents a novel two-model hierarchical architecture for real-time  hand gesture recognition systems that enable the integration of deep learning models, which performs well offline. We evaluated the proposed architecture on two dynamic hand gesture datasets (EgoGesture and nvGesture), and achieved similar results for both of them.\\ 
+
+After offline classification results, we concluded that Depth modality allow the model learn better than other modalities as it only captures the hand movement and filter out the background motion. Also it is clear that as the number of consecutive frames in a window increased, the model performs better as it is easier for the model to capture temporal pattern of gestures. As the windows-size chosen closer to the mean number of gesture durations (in frames), the model perform better in learning the patter. One negative outcome of using bigger window size is that the floating point operations for one iteration increases linearly.\\
+
+For the evaluation of real-time gesture recognition models, we utilized a new metric approach, the Levenshtein accuracy, that validate single-time activation precision of a model. Our results show that, weighted-averaging of class probability over time improves the overall performance together with allowing early detection of gestures. Fixing the threshold, Levenshtein accuracy of the weighted approach is always more than the not-weighted approach. This proves that the ambiguity at the beginning of gestures, especially dynamic gestures,  can be eliminated by assigning smaller weights. \\
+
+We acquired single-time activation per gesture by using difference between highest two average  class probabilities as a confidence measure. However, as a future work we would like to investigate more on the statistical hypothesis testing for the confidence measure of the single-time activation. Also, we intend to utilize different weighting approaches in order to increase the performance even further.  \\
+
+
+
+
+
